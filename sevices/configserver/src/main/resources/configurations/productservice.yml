@@ -1,0 +1,20 @@
+server:
+  port:8083
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product
+    username: karthik
+    password: Karthik02
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate # because we need to rely on flyway to create schema
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    baseline-description: "init"
+    baseline-version: 0
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}

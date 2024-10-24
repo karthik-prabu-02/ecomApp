@@ -1,0 +1,104 @@
+#version: '3.8'  # Specify version (optional but recommended)
+
+services:
+  # Postgres services
+  postgres:
+    container_name: ms_pg_sql
+    image: postgres
+    environment:
+      POSTGRES_USER: karthik
+      POSTGRES_PASSWORD: Karthik02
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Use a specific volume for PostgreSQL
+    ports:
+      - 5432:5432
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  # PgAdmin Service (Postgres Web UI)
+  pgadmin:
+    container_name: ms_pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin  # Separate volume for PgAdmin
+    ports:
+      - 5050:80
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  # MongoDB Service
+  mongodb:
+    container_name: ms_mongo_db
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: Karthik02
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data  # Use a specific volume for MongoDB
+
+  # Mongo Express Service (MongoDB Web UI)
+  mongo-express:
+    container_name: ms_mongo-express
+    image: mongo-express
+    restart: unless-stopped
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=mongoadmin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=Karthik02
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    ports:
+      - 8081:8081
+
+  # Kafka service
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2281
+    networks:
+      - microservices-net
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: ms_kafka
+    ports:
+      - 9092:9092
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+    networks:
+      - microservices-net
+
+  # Notification service
+  mail-dev:
+    container_name: ms_mail_dev
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+networks:
+  microservices-net:
+    driver: bridge
+
+volumes:
+  postgres_data:  # Dedicated volume for PostgreSQL
+  pgadmin_data:   # Dedicated volume for PgAdmin
+  mongo_data:     # Dedicated volume for MongoDB
