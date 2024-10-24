@@ -1,6 +1,4 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+
 # Ignore Maven build output
 target/
 *.jar
@@ -18,12 +16,7 @@ out/
 *.out
 *.tmp
 *.swp
-# Ignore IntelliJ's workspace files
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
+
 
 # Ignore Maven wrapper files
-.mvn/wrapper/maven-wrapper.jar
+.mvn/
