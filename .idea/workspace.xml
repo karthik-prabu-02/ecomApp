@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03f16bf1-b3cd-46b3-8c29-cadddf92c8d4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/java/com/ecom/paymentservice/PaymentserviceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/java/com/ecom/paymentservice/contoller/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/java/com/ecom/paymentservice/entity/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/java/com/ecom/paymentservice/entity/PaymentMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/java/com/ecom/paymentservice/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/java/com/ecom/paymentservice/model/PaymentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/java/com/ecom/paymentservice/service/PaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sevices/paymentservice/src/test/java/com/ecom/paymentservice/PaymentserviceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +33,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
-        <option value="Record" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -29,6 +47,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2naHLFj6x9Eeekods0R0VRO6cOH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,11 +69,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ecom.paymentservice.model" />
+      <recent name="com.ecom.paymentservice.service" />
+      <recent name="com.ecom.paymentservice.entity" />
       <recent name="com.ecom.orderservice.model" />
       <recent name="com.ecom.orderservice.service" />
-      <recent name="com.ecom.orderservice.repo" />
-      <recent name="com.ecom.orderservice.configuration" />
-      <recent name="com.ecom.orderservice.exception" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sevices" />
