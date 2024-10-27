@@ -1,4 +1,13 @@
 package com.ecom.notificationservice.model;
 
-public record OrderConfirmation() {
+import java.math.BigDecimal;
+import java.util.List;
+
+public record OrderConfirmation(
+        String OrderReference,
+        BigDecimal totalAmount,
+        PaymentMethod paymentMethod,
+        Customer customer,
+        List<Product> products
+) {
 }

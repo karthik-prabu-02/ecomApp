@@ -1,7 +1,6 @@
-package com.ecom.notificationservice.email;
+package com.ecom.notificationservice.service;
 
 import com.ecom.notificationservice.model.EmailTemplates;
-import com.ecom.notificationservice.model.PaymentConfirmation;
 import com.ecom.notificationservice.model.Product;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;

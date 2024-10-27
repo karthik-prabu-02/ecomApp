@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+<div style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 8px;">
+    <h2 style="color: #333333;">Hello, <span th:text="${customerName}">Customer Name</span>!</h2>
+    <p>Your payment has been successfully processed.</p>
+    <p><strong>Amount:</strong> $<span th:text="${amount}">0.00</span></p>
+    <p><strong>Order Reference:</strong> <span th:text="${orderReference}">12345ABC</span></p>
+    <p>Thank you for your purchase! We hope you enjoy your products.</p>
+    <p>Best regards,</p>
+    <p>The E-commerce Team</p>
+</div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.ecom.orderservice.service;
 
 import com.ecom.orderservice.client.CustomerClient;
+import com.ecom.orderservice.client.PaymentClient;
 import com.ecom.orderservice.client.ProductClient;
 import com.ecom.orderservice.entity.Order;
 import com.ecom.orderservice.exception.BusinessException;
@@ -26,6 +27,8 @@ public class OrderService {
     private final OrderMapper orderMapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentClient paymentClient;
+
     public Integer createOrder(@Valid OrderRequest request) {
         // Check customer - open frign
         CustomerResponse customer = this.customerClient.getCustomerById(request.customerId())
@@ -47,6 +50,14 @@ public class OrderService {
             );
         }
         // start payment process
+        var paymentrequest = new PaymentRequest(
+                request.totalAmount(),
+                request.paymentMethod(),
+                order.getOrderId(),
+                order.getReference(),
+                customer
+        );
+        paymentClient.requestOrderPayment(paymentrequest);
 
         // send order confirmation -> notification microservice(Kafka)
         orderProducer.sendOrderConfirmation(

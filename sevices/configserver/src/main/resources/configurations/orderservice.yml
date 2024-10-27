@@ -2,23 +2,22 @@ server:
   port: 8084
 spring:
   datasource:
-    datasource:
-      url: jdbc:postgresql://localhost:5432/order
-      username: karthik
-      password: Karthik02
-      driver-class-name: org.postgresql.Driver
-    jpa:
-      hibernate:
-        ddl-auto: update # because we need to rely on flyway to create schema
-      database: postgresql
-      database-platform: org.hibernate.dialect.PostgreSQLDialect
-    kafka:
-      producer:
-        bootstrap-servers: localhost:9092
-        key-serializer: org.apache.kafka.common.serialization.StringSerializer
-        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-        properties: # for security purpose
-          spring.json.type.mapping: orderConfirmation:com.ecom.orderservice.model.OrderConfirmation
+    url: jdbc:postgresql://localhost:5432/order
+    username: karthik
+    password: Karthik02
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # because we need to rely on flyway to create schema
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties: # for security purpose
+        spring.json.type.mapping: orderConfirmation:com.ecom.orderservice.model.OrderConfirmation
 
 
 

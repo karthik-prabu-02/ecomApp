@@ -18,7 +18,7 @@ import java.util.List;
 public class OrderLineServiceController {
     private final OrderLineService orderLineService;
     @GetMapping("/orders/{orderId}")
-    public ResponseEntity<List<OrderLineResponse>> findOrderLineByOrderId(@PathVariable Integer orderId) {
-        return ResponseEntity.ok(orderLineService.findOrderLineByOrderId(orderId));
+    public ResponseEntity<List<OrderLineResponse>> findAllByOrderOrderId(@PathVariable Integer orderId) {
+        return ResponseEntity.ok(orderLineService.findAllByOrderOrderId(orderId));
     }
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+<div style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 8px;">
+    <h2 style="color: #333333;">Order Confirmation for <span th:text="${customerName}">Customer Name</span></h2>
+    <p>Thank you for your order! Here are the details:</p>
+    <p><strong>Order Reference:</strong> <span th:text="${orderReference}">12345ABC</span></p>
+    <p><strong>Total Amount:</strong> $<span th:text="${totalAmount}">0.00</span></p>
+    <h3>Products:</h3>
+    <ul>
+        <li th:each="product : ${products}">
+            <strong th:text="${product.name}">Product Name</strong> - Quantity:
+            <span th:text="${product.quantity}">0</span>, Price: $
+            <span th:text="${product.price}">0.00</span>
+        </li>
+    </ul>
+    <p>We will notify you once your order has shipped.</p>
+    <p>Thank you for shopping with us!</p>
+    <p>Best regards,</p>
+    <p>The E-commerce Team</p>
+</div>
+</body>
+</html>

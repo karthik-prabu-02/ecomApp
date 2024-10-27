@@ -19,8 +19,8 @@ public class OrderLineService {
         return orderLineRepository.save(order).getOrderLineId();
     }
 
-    public List<OrderLineResponse> findOrderLineByOrderId(Integer orderId) {
-        return orderLineRepository.findAllByOrderId(orderId)
+    public List<OrderLineResponse> findAllByOrderOrderId(Integer orderId) {
+        return orderLineRepository.findAllByOrderOrderId(orderId)
                 .stream()
                 .map(orderLineMapper::toOrderLineResponse)
                 .collect(Collectors.toList());
